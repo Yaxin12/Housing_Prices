@@ -437,7 +437,7 @@ if selected=="Search":
             with st.expander('Expand for Table Info'):
                 st.markdown(
                 """
-                - The values for OVERALL, PEOPLE, HOME, WORK, and ENVIRONMENT are scaled similarity scores for the respective categories with values of 0-100, where 100 represents a perfect match.
+                - The values for OVERALL,HOME, and ENVIRONMENT are scaled similarity scores for the respective categories with values of 0-100, where 100 represents a perfect match.
                 - Locations are ranked by their OVERALL score, which is a weighted average of the individual category scores.
                 - Save your research by checking locations in the SAVE column which will be added to csv for download.
                 """
@@ -539,9 +539,9 @@ if selected=="Search":
                 st.divider()
                 col1,col2=st.columns(2)
                 col1.caption('Selected')
-                col1.metric('Avg HH Size','{:,.1f}'.format(selected_record['HH_SIZE'][0].round(2)))
+                col1.metric('Avg Household Size','{:,.1f}'.format(selected_record['HH_SIZE'][0].round(2)))
                 col2.caption('Similar')
-                col2.metric('Avg HH Size','{:,.1f}'.format(compare_record['HH_SIZE'][0].round(2)),delta='{:,.1f}'.format(dif_record['HH_SIZE'][0].round(2)))
+                col2.metric('Avg Household Size','{:,.1f}'.format(compare_record['HH_SIZE'][0].round(2)),delta='{:,.1f}'.format(dif_record['HH_SIZE'][0].round(2)))
                 st.divider()
                 col1,col2=st.columns(2) 
                 col1.caption('Selected')
@@ -563,9 +563,9 @@ if selected=="Search":
                 st.divider()
                 col1,col2=st.columns(2)
                 col1.caption('Selected')
-                col1.metric('Pct Single Family Residential','{:.1%}'.format(selected_record['PCT_UNIT1'][0].round(2)/100))
+                col1.metric('% Single Family Residential','{:.1%}'.format(selected_record['PCT_UNIT1'][0].round(2)/100))
                 col2.caption('Similar')
-                col2.metric('Pct Single Family Residential','{:.1%}'.format(compare_record['PCT_UNIT1'][0].round(2)/100),delta='{:.1%}'.format(dif_record['PCT_UNIT1'][0].round(2)/100))
+                col2.metric('% Single Family Residential','{:.1%}'.format(compare_record['PCT_UNIT1'][0].round(2)/100),delta='{:.1%}'.format(dif_record['PCT_UNIT1'][0].round(2)/100))
             with tab5:
                 col1,col2=st.columns(2)
                 col1.subheader('Selected')
@@ -589,27 +589,27 @@ if selected=="Search":
                 st.divider()
                 col1,col2=st.columns(2)
                 col1.caption('Selected')
-                col1.metric('Pct Area is Water','{:.2%}'.format(selected_record['PCT_WATER'][0]))
+                col1.metric('% Area is Water','{:.2%}'.format(selected_record['PCT_WATER'][0]))
                 col2.caption('Similar')
-                col2.metric('Pct Area is Water','{:.2%}'.format(compare_record['PCT_WATER'][0]),delta='{:.2%}'.format(dif_record['PCT_WATER'][0]))
+                col2.metric('% Area is Water','{:.2%}'.format(compare_record['PCT_WATER'][0]),delta='{:.2%}'.format(dif_record['PCT_WATER'][0]))
                 st.divider()
                 col1,col2=st.columns(2)
                 col1.caption('Selected')
                 col1.metric('Environmental Quality Index','{:.2f}'.format(selected_record['ENV_INDEX'][0].round(2)))
                 col2.caption('Similar')
                 col2.metric('Environmental Quality Index','{:.2f}'.format(compare_record['ENV_INDEX'][0].round(2)),delta='{:.2f}'.format(dif_record['ENV_INDEX'][0]))
-                st.divider()
-                col1,col2=st.columns(2)
-                col1.caption('Selected')
-                col1.metric('Pct within 0.5 mile to Park','{:.1%}'.format(selected_record['PCT_TOPARK_HALFMILE'][0].round(2)/100))
-                col2.caption('Similar')
-                col2.metric('Pct within 0.5 mile to Park','{:.1%}'.format(compare_record['PCT_TOPARK_HALFMILE'][0].round(2)/100),delta='{:.1%}'.format(dif_record['PCT_TOPARK_HALFMILE'][0]/100))
-                st.divider()
-                col1,col2=st.columns(2)
-                col1.caption('Selected')
-                col1.metric('Pct within 1 mile to Park','{:.1%}'.format(selected_record['PCT_TOPARK_ONEMILE'][0].round(2)/100))
-                col2.caption('Similar')
-                col2.metric('Pct within 1 mile to Park','{:.1%}'.format(compare_record['PCT_TOPARK_ONEMILE'][0].round(2)/100),delta='{:.1%}'.format(dif_record['PCT_TOPARK_ONEMILE'][0]/100))
+                #st.divider()
+                #col1,col2=st.columns(2)
+                #col1.caption('Selected')
+                #col1.metric('Pct within 0.5 mile to Park','{:.1%}'.format(selected_record['PCT_TOPARK_HALFMILE'][0].round(2)/100))
+                #col2.caption('Similar')
+                #col2.metric('Pct within 0.5 mile to Park','{:.1%}'.format(compare_record['PCT_TOPARK_HALFMILE'][0].round(2)/100),delta='{:.1%}'.format(dif_record['PCT_TOPARK_HALFMILE'][0]/100))
+                #st.divider()
+                #col1,col2=st.columns(2)
+                #col1.caption('Selected')
+                #col1.metric('Pct within 1 mile to Park','{:.1%}'.format(selected_record['PCT_TOPARK_ONEMILE'][0].round(2)/100))
+                #col2.caption('Similar')
+                #col2.metric('Pct within 1 mile to Park','{:.1%}'.format(compare_record['PCT_TOPARK_ONEMILE'][0].round(2)/100),delta='{:.1%}'.format(dif_record['PCT_TOPARK_ONEMILE'][0]/100))
                                  
 
 #About Page
