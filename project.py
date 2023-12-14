@@ -18,7 +18,7 @@ import snowflake.connector
 
 #Layout
 st.set_page_config(
-    page_title="SimiLo",
+    page_title="House Prices",
     layout="centered",
     initial_sidebar_state="expanded")
 
@@ -54,35 +54,74 @@ with st.sidebar:
 #Intro Page
 if selected=="Intro":
     #Header
-    st.title('Welcome to SimiLo')
-    st.subheader('*A new tool to find similar locations across the United States.*')
-
+    st.title('Analysis on House/Property rates in United States')
     st.divider()
 
     #Use Cases
     with st.container():
-        col1,col2=st.columns(2)
-        with col1:
-            st.header('Use Cases')
-            st.markdown(
-                """
-                - _Remote work got you thinking about relocation?_
-                - _Looking for a new vacation spot?_
-                - _Conducting market research for product expansion?_
-                - _Just here to play and learn?_
-                """
-                )
-        with col2:
-            lottie2 = load_lottiefile("place2.json")
-            st_lottie(lottie2,key='place',height=300,width=300)
+        #col1,col2=st.columns(2)
+        #with col1:
+        st.header('Introduction')
+        st.markdown(
+            """
+            Lately, there is a lot of information on prices of residential properties at different locations.
+            Although it seems easier to find out all these data, considering how fast and reliable ChatGPT and other AI tools have emerged, 
+            but the real problem is how to analyze once you have all the data. The app I designed is a small replica of analyzation of residential 
+            and house properties, and helps users to analyze in an organized manner. 
+
+            This dashboard enables users to view property/housing prices at diifferent states and cities of United States and can research about 
+            their favorite locations to settle in the long run.
+
+            The app has three pages:
+
+            **Home**:    Introduction
+            **Search**:  It allows user to search different locations through zip codes and cities
+                         and can compare them with different metrics or explore them.
+            **Analyze**: Getting insights of house prices through boxplot measures.
+
+            """
+            )
+        
+        #st.header('Introduction')
+        st.markdown(
+            """
+            **Data Sources and Preparation**
+            The data used in this app is found in different locations. 
+            1. Demographic, housing at zip level (https://data.census.gov/)
+            2. Environmental metrics (https://data.cdc.gov/)
+            3. Mapping zip to USPS city (https://data.opendatasoft.com/pages/home/)
+            4. Appreciation Rates Q2 2023 (https://www.statista.com/statistics/1240802/annual-home-price-appreciation-by-state-usa/)
+
+            I have mapped zip codes to cities with other metrics and demographics in one csv file. Appreciation rates are extracted into another csv file.  
+            """
+            )
+        
+        st.markdown(
+            """
+            **Use Case**
+            It is important to note why, where, and how the property rates are showcasing the growth in different parts of United States.
+            This can enable users like buyers, dealerships, and people companies target specific cities/counties depending on prices and location.
+
+            **App Features**
+            - Analyze which cities and states have better housing rates depending on various metrics.
+            - View and compare the cities to analyze the similarity scores and choose the desired living location.
+            - Analyze the annual appreciation of residential properties to determine the housing rates of 50 states from United States. 
+              View data in different quartiles for better insights.
+
+            **Future Work**
+            This app can be extended to include additional countries and add more living location metrics to analyze the 
+            best city/state for buying the properties.
+
+            **Streamlit App**
+            https://housingprices.streamlit.app/
+            """
+            )
+        #with col2:
+        #   lottie2 = load_lottiefile("place2.json")
+        #  st_lottie(lottie2,key='place',height=300,width=300)
 
     st.divider()
 
-    #Tutorial Video
-    st.header('Tutorial Video')
-    video_file = open('Similo_Tutorial3_compressed.mp4', 'rb')
-    video_bytes = video_file.read()
-    st.video(video_bytes)
     
 #Search Page
 if selected=="Search":
@@ -208,7 +247,7 @@ if selected=="Search":
                 save=edited_df[edited_df['SAVE']==True]
                 save=save.reset_index()
                 csv = convert_df(save[cols+['SAVE','NOTES']])
-                st.download_button(label="Download Selections as CSV",data=csv,file_name='SIMILO_SAVED.csv',mime='text/csv',)
+                st.download_button(label="Download Selections as CSV",data=csv,file_name='DATA_SAVED.csv',mime='text/csv',)
             with tab1:
                 latcenter=df_top10['LAT'].mean()
                 loncenter=df_top10['LON'].mean()
@@ -639,10 +678,10 @@ if selected=='Analyze':
 
     st.sidebar.markdown(''' > **How to analyze**
 
-    1. To Select a state (**green dot**).
-    2. To compare for the selected state against other 50 states (**white dots**).
-    3. To compare the chosen state against **national average** and the data distribution.
-    4. To extract insights as "An appreciation above national average & price below average = possible *opportunity*".
+    1. Select a state (**green dot**).
+    2. Compare for the selected state against other 50 states (**white dots**).
+    3. Compare the chosen state against **national average** and the data distribution.
+    4. Extract insights as "An appreciation above national average & price below average = possible *opportunity*".
     ''')
 
     # --- App (begin):

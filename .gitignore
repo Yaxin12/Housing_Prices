@@ -1,1 +1,10 @@
-hpi-2.csv
+# Ignore virtual environments
+.venv/
+
+# Ignore environment variables
+.env
+
+# Datasets
+MASTER_CITY.csv
+MASTER_ZIP.csv
+data/appreciation_Q2_2023.csv
