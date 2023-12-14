@@ -46,7 +46,7 @@ def pull_clean():
 
 #Options Menu
 with st.sidebar:
-    selected = option_menu('SimiLo', ["Intro", 'Search','Analyze'], 
+    selected = option_menu('Welcome', ["Intro", 'Search','Analyze'], 
         icons=['play-btn','search','info-circle'],menu_icon='intersect', default_index=0)
     lottie = load_lottiefile("Animation.json")
     st_lottie(lottie,key='loc')
@@ -74,10 +74,10 @@ if selected=="Intro":
 
             The app has three pages:
 
-            **Home**:    Introduction
-            **Search**:  It allows user to search different locations through zip codes and cities
+            -**Home**:    Introduction
+            -**Search**:  It allows user to search different locations through zip codes and cities
                          and can compare them with different metrics or explore them.
-            **Analyze**: Getting insights of house prices through boxplot measures.
+            -**Analyze**: Getting insights of house prices through boxplot measures.
 
             """
             )
