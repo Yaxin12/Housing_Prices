@@ -10,7 +10,7 @@ This dashboard enables users to view property/housing prices at diifferent state
 The app has three pages:
 
 - **Home**: Introduction
-- **Search**: It allows user to search different locations through zip codes and cities and can compare them with different metrics or explore them.
+- **Search**: It allows user to search different locations through zip codes and cities and can compare them with different metrics or explore   them.
 - **Analyze**: Getting insights of house prices through boxplot measures.
 
 ## Data Sources and Preparation 
