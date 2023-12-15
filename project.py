@@ -437,7 +437,7 @@ if selected=="Search":
             save=edited_df[edited_df['SAVE']==True]
             save=save.reset_index()
             csv = convert_df(save[cols+['SAVE','NOTES']])
-            st.download_button(label="Download Selections as CSV",data=csv,file_name='SIMILO_SAVED.csv',mime='text/csv',)
+            st.download_button(label="Download Selections as CSV",data=csv,file_name='House_property.csv',mime='text/csv',)
         with tab1:
             latcenter=df_top10['LAT'].mean()
             loncenter=df_top10['LON'].mean()
