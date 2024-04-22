@@ -2,6 +2,9 @@
 
 [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://housingprices.streamlit.app/)
 
+
+[![Yaxin](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://housingprices.streamlit.app/)
+
 ## Introduction
 Lately, there is a lot of information on prices of residential properties at different locations. Although it seems easier to find out all these data, considering how fast and reliable ChatGPT and other AI tools have emerged, but the real problem is how to analyze once you have all the data. The app I designed is a small replica of analyzation of residential and house properties, and helps users to analyze in an organized manner. 
 
